@@ -1,0 +1,19 @@
+body {
+  background-color: rgb(194, 194, 209);
+}
+H1 {
+  font-size: 3em;
+  text-align: center;
+}
+H3 {
+  font-size: 1.5em;
+  text-align: center;
+}
+.myContainer {
+  border-thin: 3px;
+}
+.image-One {
+  width: 150px;
+  height: 150px;
+}
+
