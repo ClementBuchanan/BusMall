@@ -5,23 +5,22 @@ var myContainer = document.getElementById('container');
 //console.log(myContainer);
 var imageOneElement = document.getElementById('image-One');
 var imageTwoElement = document.getElementById('image-Two');
-// var imageThreeElement = document.getElementById('image-Three');
+var imageThreeElement = document.getElementById('image-Three');
 var resultsList = document.getElementById('results');
 
 //image constructor
-function Image(name, src = 'src') {
+function MallImage(name) {
   this.name = name; // bag
   this.src = `images/${name}.${'jpg'}`;
   allImages.push(this);
 }
 
-
 //instantiations
-new Image('bag');
-new Image('banana');
-new Image('chair');
-new Image('pen');
-new Image('dragon');
+new MallImage('bag');
+new MallImage('banana');
+new MallImage('chair');
+new MallImage('pen');
+new MallImage('dragon');
 
 // retrieved from Math.random MDN docs
 function getRandomIndex(max) {
@@ -30,6 +29,7 @@ function getRandomIndex(max) {
 function renderImages() {
   var imageOneIndex = getRandomIndex(allImages.length);
   var imageTwoIndex = getRandomIndex(allImages.length);
+  var imageThreeIndex = getRandomIndex(allImages.length);
 
   // validation
 
@@ -47,13 +47,19 @@ function renderImages() {
   imageTwoElement.title = allImages[imageTwoIndex].name;
   allImages[imageTwoIndex].views++;
 
+  imageThreeElement.src = allImages[imageThreeIndex].src;
+  imageThreeElement.alt = allImages[imageThreeIndex].name;
+  imageThreeElement.title = allImages[imageThreeIndex].name;
+  allImages[imageTwoIndex].views++;
+
+
   function handleClick(event) {
     //console.log(event);
     var clickedImage = event.target.title;
     console.log(clickedImage);
 
     for (var i = 0; i < allImages.length; i++)
-      if (clickedImages === allImages[i].name) {
+      if (clickedImage === allImages[i].name) {
         allImages[i].votes++;
       }
   }

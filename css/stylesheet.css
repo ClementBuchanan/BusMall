@@ -9,12 +9,14 @@ H3 {
   font-size: 1.5em;
   text-align: center;
 }
-#container {
+.container {
   border: 1px solid black;
+  text-align: center;
 
 }
-#image-One {
+.products {
   width: 400px;
   height: 250px;
+  text-align: center;
 }
 
