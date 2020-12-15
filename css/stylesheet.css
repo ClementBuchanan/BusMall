@@ -9,11 +9,12 @@ H3 {
   font-size: 1.5em;
   text-align: center;
 }
-.myContainer {
-  border-thin: 3px;
+#container {
+  border: 1px solid black;
+
 }
-.image-One {
-  width: 150px;
-  height: 150px;
+#image-One {
+  width: 400px;
+  height: 250px;
 }
 

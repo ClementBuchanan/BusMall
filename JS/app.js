@@ -5,7 +5,7 @@ var myContainer = document.getElementById('container');
 //console.log(myContainer);
 var imageOneElement = document.getElementById('image-One');
 var imageTwoElement = document.getElementById('image-Two');
-var imageThreeElement = document.getElementById('image-Three');
+// var imageThreeElement = document.getElementById('image-Three');
 var resultsList = document.getElementById('results');
 
 //image constructor
@@ -30,7 +30,7 @@ function renderImages() {
   var imageOneIndex = getRandomIndex(allImages.length);
   var imageTwoIndex = getRandomIndex(allImages.length);
 
-  validation
+  // validation
 
   while (imageOneIndex === imageTwoIndex) {
     imageTwoIndex = getRandomIndex(allImages.length);
@@ -55,9 +55,8 @@ function renderImages() {
       if (clickedImages === allImages[i].name) {
         allImages[i].votes++;
       }
-    renderImages();
-  };
+  }
   renderImages();
-
-  myContainer.addEventListener('click', handleClick)
+  myContainer.addEventListener('click', handleClick);
 }
+renderImages();
