@@ -15,6 +15,7 @@ function Image(name, src = 'src') {
   allImages.push(this);
 }
 
+
 //instantiations
 new Image('bag');
 new Image('banana');
