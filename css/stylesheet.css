@@ -12,16 +12,16 @@ h3 {
   text-align: center;
 }
 #container {
-  border: 2px salmon solid;
+  border: 2px rgb(255, 178, 102) solid;
   width: 800px;
   height: 250px;
-  background-color: green;
+  background-color: rgb(76, 153, 0);
   margin: auto;
   margin-top: 70px;
 
 }
 .products {
-  border: 1px solid black;
+  border: 1px rgb(255, 178, 102) solid;
   width: 200px;
   height: 200px;
   text-align: center;
@@ -36,8 +36,9 @@ header {
   /* margin-left: 100px; */
 }
 #myChart {
-  width: 1500px;
-  height: 400px;
+  width: 900px;
+  height: 300px;
   margin: auto;
+  margin-top: 50px;
 }
 

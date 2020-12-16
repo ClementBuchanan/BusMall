@@ -115,10 +115,10 @@ function renderChart() {
         label: 'Number of Votes',
         data: votesArray,
         backgroundColor: [
-          'rgba(255, 99, 132, 0.2)',
+          'rgba(255, 255, 102, 0.2)',
         ],
         borderColor: [
-          'rgba(255, 99, 132, 1)',
+          'rgba(255, 178, 102, 1)',
         ],
         borderWidth: 1
       },
@@ -126,10 +126,10 @@ function renderChart() {
         label: 'Number of Views',
         data: viewsArray,
         backgroundColor: [
-          'rgba(255, 159, 64, 0.2)'
+          'rgba(255, 153, 153, 0.2)'
         ],
         borderColor: [
-          'rgba(255, 159, 64, 1)'
+          'rgba(255, 204, 153, 1)'
         ],
         borderWidth: 1,
       }]
