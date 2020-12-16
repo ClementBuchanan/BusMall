@@ -10,45 +10,59 @@ var myContainer = document.getElementById('container');
 var imageOneElement = document.getElementById('image-One');
 var imageTwoElement = document.getElementById('image-Two');
 var imageThreeElement = document.getElementById('image-Three');
-var imageFourElement = document.getElementById('image-One');
-var imageFiveElement = document.getElementById('image-Two');
-var imageSixElement = document.getElementById('image-Three');
-var resultsList = document.getElementById('results');
 
 //image constructor
 function MallImage(name, src = 'jpg') {
   this.name = name; // bag
-  this.src = `images/${name}.${'jpg'}`;
-  this.view = 0;
+  this.src = `images/${name}.${src}`;
+  this.views = 0;
   this.votes = 0;
+  console.log(this);
   allImages.push(this);
 }
-
-//instantiations
-new MallImage('bag');
-new MallImage('banana');
-new MallImage('chair');
-new MallImage('pen');
-new MallImage('dragon');
-new MallImage('boots');
-new MallImage('bubblegum');
-new MallImage('cthulhu');
-new MallImage('pet-sweep');
-new MallImage('scissors');
+MallImage.prototype.logger = function () {
+  console.log(this);
+};
+var retrieveMallImage = localStorage.getItem('images');
+if (retrieveMallImage) {
+  allImages = JSON.parse(retrieveMallImage);
+} else {
+  //instantiations
+  new MallImage('bag');
+  new MallImage('banana');
+  new MallImage('chair');
+  new MallImage('pen');
+  new MallImage('dragon');
+  new MallImage('boots');
+  new MallImage('bubblegum');
+  new MallImage('cthulhu');
+  new MallImage('pet-sweep');
+  new MallImage('scissors');
+  new MallImage('bathroom');
+  new MallImage('breakfast');
+  new MallImage('dog-duck');
+  new MallImage('shark');
+  new MallImage('sweep', 'png');
+  new MallImage('tauntaun');
+  new MallImage('unicorn');
+  new MallImage('usb', 'gif');
+  new MallImage('water-can');
+  new MallImage('wine-glass');
+}
 
 // retrieved from Math.random MDN docs
 function getRandomIndex(max) {
   return Math.floor(Math.random() * Math.floor(max));
 }
 function renderImages() {
-  while (renderQue.length < 4) {
+  while (renderQue.length < 6) {
     var tempIndex = getRandomIndex(allImages.length);
     while (renderQue.includes(tempIndex)) {
       tempIndex = getRandomIndex(allImages.length);
     }
-    renderQue.push(tempIndex);
+    renderQue.unshift(tempIndex);
   }
-  console.log(renderQue);
+  //console.log(renderQue);
 
   var imageOneIndex = renderQue.pop();
   var imageTwoIndex = renderQue.pop();
@@ -59,7 +73,7 @@ function renderImages() {
   imageOneElement.src = allImages[imageOneIndex].src;
   imageOneElement.alt = allImages[imageOneIndex].name;
   imageOneElement.title = allImages[imageOneIndex].name;
-  allImages[imageOneIndex].view++;
+  allImages[imageOneIndex].views++;
 
   imageTwoElement.src = allImages[imageTwoIndex].src;
   imageTwoElement.alt = allImages[imageTwoIndex].name;
@@ -83,7 +97,7 @@ function handleClick(event) {
     if (clickedImage === allImages[i].name) {
       allImages[i].votes++;
     }
-  if (actualClicks === 25) {
+  if (actualClicks === maxClicks) {
     myContainer.removeEventListener('click', handleClick);
     console.log('here');
     renderChart();
@@ -92,6 +106,7 @@ function handleClick(event) {
 }
 renderImages();
 
+myContainer.addEventListener('click', handleClick);
 
 function renderChart() {
   var namesArray = [];
@@ -102,9 +117,9 @@ function renderChart() {
     namesArray.push(allImages[j].name);
     votesArray.push(allImages[j].votes);
     viewsArray.push(allImages[j].views);
-
   }
   //chart retrive from chartsJS.org
+
   var ctx = document.getElementById('myChart').getContext('2d');
 
   var dataObject = {
@@ -114,23 +129,15 @@ function renderChart() {
       datasets: [{
         label: 'Number of Votes',
         data: votesArray,
-        backgroundColor: [
-          'rgba(255, 255, 102, 0.2)',
-        ],
-        borderColor: [
-          'rgba(255, 178, 102, 1)',
-        ],
+        backgroundColor: 'rgba(255, 255, 102, 0.2)',
+        borderColor: 'rgba(255, 178, 102, 1)',
         borderWidth: 1
       },
       {
         label: 'Number of Views',
         data: viewsArray,
-        backgroundColor: [
-          'rgba(255, 153, 153, 0.2)'
-        ],
-        borderColor: [
-          'rgba(255, 204, 153, 1)'
-        ],
+        backgroundColor: 'rgba(255, 153, 153, 0.2)',
+        borderColor: 'rgba(255, 204, 153, 1)',
         borderWidth: 1,
       }]
     },
@@ -145,16 +152,6 @@ function renderChart() {
       }
     }
   };
-
   var myChart = new Chart(ctx, dataObject);
 }
-
-
-
-
-myContainer.addEventListener('click', handleClick);
-
-
-
-
 
