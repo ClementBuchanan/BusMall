@@ -1,22 +1,43 @@
 body {
   background-color: rgb(194, 194, 209);
+  /* display: flex; */
+  /* justify-content: center; */
 }
-H1 {
+h1 {
   font-size: 3em;
   text-align: center;
 }
-H3 {
+h3 {
   font-size: 1.5em;
   text-align: center;
 }
-.container {
-  border: 1px solid black;
-  text-align: center;
+#container {
+  border: 2px salmon solid;
+  width: 800px;
+  height: 250px;
+  background-color: green;
+  margin: auto;
+  margin-top: 70px;
 
 }
 .products {
-  width: 400px;
-  height: 250px;
+  border: 1px solid black;
+  width: 200px;
+  height: 200px;
   text-align: center;
+  margin-left: 50px;
+  margin-top: 15px;
+}
+main {
+  margin-top: 100px;
+}
+
+header {
+  /* margin-left: 100px; */
+}
+#myChart {
+  width: 1500px;
+  height: 400px;
+  margin: auto;
 }
 
