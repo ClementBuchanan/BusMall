@@ -1,7 +1,15 @@
-body {
+body::after {
+  content: "";
   background-color: rgb(194, 194, 209);
-  /* display: flex; */
-  /* justify-content: center; */
+  background-image: url(../images/bellevue-mall.jpg);
+  background-size: 100%;
+  opacity: 0.5;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1; 
 }
 h1 {
   font-size: 3em;
