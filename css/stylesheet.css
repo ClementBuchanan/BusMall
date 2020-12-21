@@ -1,9 +1,10 @@
 body::after {
+  background-repeat: repeat-y;
   content: "";
   background-color: rgb(194, 194, 209);
   background-image: url(../images/bellevue-mall.jpg);
   background-size: 100%;
-  opacity: 0.5;
+  opacity: 0.8;
   top: 0;
   left: 0;
   bottom: 0;

@@ -109,6 +109,8 @@ renderImages();
 myContainer.addEventListener('click', handleClick);
 
 function renderChart() {
+  var imageContainer =document.getElementById('container');
+  imageContainer.style.display = 'none';
   var namesArray = [];
   var votesArray = [];
   var viewsArray = [];
@@ -121,6 +123,8 @@ function renderChart() {
   //chart retrive from chartsJS.org
 
   var ctx = document.getElementById('myChart').getContext('2d');
+  var chart = document.getElementById('myChart');
+  chart.style.backgroundColor = 'white';
 
   var dataObject = {
     type: 'bar',
